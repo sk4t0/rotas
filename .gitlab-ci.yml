@@ -1,0 +1,24 @@
+development_testing:
+  type: deploy
+  environment: ive-testing
+  script:
+  - mkdir ~/.aws/
+  - touch ~/.aws/credentials
+  - printf "[eb-cli]\naws_access_key_id = %s\naws_secret_access_key = %s\n" "$AWS_ACCESS_KEY_ID" "$AWS_SECRET_ACCESS_KEY" >> ~/.aws/credentials
+  - touch ~/.aws/config
+  - printf "[profile eb-cli]\nregion=us-east-1\noutput=json" >> ~/.aws/config
+  - eb deploy ive-testing --timeout 50
+  only:
+  - test
+development_production:
+  type: deploy
+  environment: ive-production
+  script:
+  - mkdir ~/.aws/
+  - touch ~/.aws/credentials
+  - printf "[eb-cli]\naws_access_key_id = %s\naws_secret_access_key = %s\n" "$AWS_ACCESS_KEY_ID" "$AWS_SECRET_ACCESS_KEY" >> ~/.aws/credentials
+  - touch ~/.aws/config
+  - printf "[profile eb-cli]\nregion=us-east-1\noutput=json" >> ~/.aws/config
+  - eb deploy ive-production --timeout 50
+  only:
+  - master

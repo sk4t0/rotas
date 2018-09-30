@@ -86,4 +86,24 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 
     Route::get(config('laraadmin.adminRoute') .'/notifications', 'LA\UsersController@notifications');
     
+
+    /* ================== Shops ================== */
+    Route::resource(config('laraadmin.adminRoute') . '/shops', 'LA\ShopsController');
+    Route::get(config('laraadmin.adminRoute') . '/shop_dt_ajax', 'LA\ShopsController@dtajax');
+
+    /* ================== Staff ================== */
+    Route::resource(config('laraadmin.adminRoute') . '/staff', 'LA\StaffController');
+    Route::get(config('laraadmin.adminRoute') . '/staff_dt_ajax', 'LA\StaffController@dtajax');
+
+    /* ================== Rotas ================== */
+    Route::resource(config('laraadmin.adminRoute') . '/rotas', 'LA\RotasController');
+    Route::get(config('laraadmin.adminRoute') . '/rota_dt_ajax', 'LA\RotasController@dtajax');
+
+    /* ================== Shifts ================== */
+    Route::resource(config('laraadmin.adminRoute') . '/shifts', 'LA\ShiftsController');
+    Route::get(config('laraadmin.adminRoute') . '/shift_dt_ajax', 'LA\ShiftsController@dtajax');
+
+    /* ================== Shift_Breaks ================== */
+    Route::resource(config('laraadmin.adminRoute') . '/shift_breaks', 'LA\Shift_BreaksController');
+    Route::get(config('laraadmin.adminRoute') . '/shift_break_dt_ajax', 'LA\Shift_BreaksController@dtajax');
 });

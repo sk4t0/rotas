@@ -1,0 +1,19 @@
+/node_modules
+/public/storage
+Homestead.yaml
+Homestead.json
+/.idea
+/storage/*.key
+/.phpstorm.meta.php
+/_ide_helper.php
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+/config/.gitattributes
+.env
+/storage/laravel-backups/
+/storage/thumbnails/
+/storage/uploads/
+/storage/debugbar/
+/vendor/
