@@ -96,7 +96,7 @@ class ShopsController extends Controller
     {
         if(Module::hasAccess("Shops", "view")) {
             
-            $shop = $this->api->get('api/shops/' . $id);
+            $shop = Shop::findOrFail($id);
             if(isset($shop->id)) {
                 $module = Module::get('Shops');
                 $module->row = $shop;

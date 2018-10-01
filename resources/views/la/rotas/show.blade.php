@@ -109,6 +109,7 @@
                     <div class="panel-body">
                         @la_display($module, 'week_commence_date')
 						@la_display($module, 'shop_id')
+                        <a href="{{ url(config('laraadmin.adminRoute') . '/rota/single_manning/'.$rota->id) }}" class="btn btn-edit btn-success"><i class="fa fa-clock-o"></i>Single Manning</a>
                     </div>
                 </div>
             </div>

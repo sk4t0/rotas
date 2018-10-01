@@ -29,4 +29,12 @@ class Staff extends Model
         ];
     
     protected $dates = ['deleted_at'];
+
+    /**
+     * Get the shifts for the staff member.
+     */
+    public function shifts()
+    {
+        return $this->hasMany('App\Models\Shift');
+    }
 }

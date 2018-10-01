@@ -96,7 +96,7 @@ class RotasController extends Controller
     {
         if(Module::hasAccess("Rotas", "view")) {
             
-            $rota = $this->api->get('api/rotas/' . $id);
+            $rota = Rota::findOrFail($id);
             if(isset($rota->id)) {
                 $module = Module::get('Rotas');
                 $module->row = $rota;

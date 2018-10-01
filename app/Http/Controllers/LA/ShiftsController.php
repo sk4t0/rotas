@@ -96,7 +96,7 @@ class ShiftsController extends Controller
     {
         if(Module::hasAccess("Shifts", "view")) {
             
-            $shift = $this->api->get('api/shifts/' . $id);
+            $shift = Shift::findOrFail($id);
             if(isset($shift->id)) {
                 $module = Module::get('Shifts');
                 $module->row = $shift;

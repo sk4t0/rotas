@@ -29,4 +29,12 @@ class Shift_Break extends Model
         ];
     
     protected $dates = ['deleted_at'];
+
+    /**
+     * Get the shift that owns the shift break.
+     */
+    public function shift()
+    {
+        return $this->belongsTo('App\Models\Shift');
+    }
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "60e052b2e4283db9db59b65a0b0942da",
+    "content-hash": "181c897e2ab20b9c8c3a84e3bbdb1779",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1885,6 +1885,55 @@
                 "tokenizer"
             ],
             "time": "2018-03-21T22:21:57+00:00"
+        },
+        {
+            "name": "kumuwai/data-transfer-object",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kumuwai/data-transfer-object.git",
+                "reference": "3c673a063361549ed067335c33164dff133922fa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kumuwai/data-transfer-object/zipball/3c673a063361549ed067335c33164dff133922fa",
+                "reference": "3c673a063361549ed067335c33164dff133922fa",
+                "shasum": ""
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.3",
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kumuwai\\DataTransferObject\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joel Hatch",
+                    "email": "joel@kumuwai.com"
+                }
+            ],
+            "description": "Load/view dto elements with object, array, json, or dot-notation",
+            "homepage": "https://github.com/kumuwai/data-transfer-object",
+            "keywords": [
+                "array",
+                "dot",
+                "dto",
+                "json"
+            ],
+            "time": "2015-04-08T16:51:09+00:00"
         },
         {
             "name": "laravel-notification-channels/backport",
@@ -6657,7 +6706,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "dwij/laraadmin": 20,
-        "dingo/api": 20
+        "dingo/api": 20,
+        "kumuwai/data-transfer-object": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

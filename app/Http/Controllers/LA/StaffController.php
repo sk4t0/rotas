@@ -96,7 +96,7 @@ class StaffController extends Controller
     {
         if(Module::hasAccess("Staff", "view")) {
             
-            $staff = $this->api->get('api/staffs/' . $id);
+            $staff = Staff::findOrFail($id);
             if(isset($staff->id)) {
                 $module = Module::get('Staff');
                 $module->row = $staff;

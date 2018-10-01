@@ -98,6 +98,7 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
     /* ================== Rotas ================== */
     Route::resource(config('laraadmin.adminRoute') . '/rotas', 'LA\RotasController');
     Route::get(config('laraadmin.adminRoute') . '/rota_dt_ajax', 'LA\RotasController@dtajax');
+    Route::get(config('laraadmin.adminRoute') . '/rota/single_manning/{id}', 'SingleManningController@show');
 
     /* ================== Shifts ================== */
     Route::resource(config('laraadmin.adminRoute') . '/shifts', 'LA\ShiftsController');
@@ -106,4 +107,5 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
     /* ================== Shift_Breaks ================== */
     Route::resource(config('laraadmin.adminRoute') . '/shift_breaks', 'LA\Shift_BreaksController');
     Route::get(config('laraadmin.adminRoute') . '/shift_break_dt_ajax', 'LA\Shift_BreaksController@dtajax');
+
 });

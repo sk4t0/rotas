@@ -25,7 +25,8 @@
         "pragmarx/google2fa-laravel": "^0.1.2",
         "bacon/bacon-qr-code": "^1.0",
         "laravel-notification-channels/backport": "^1.0",
-        "pusher/pusher-php-server": "^3.0"
+        "pusher/pusher-php-server": "^3.0",
+        "kumuwai/data-transfer-object": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

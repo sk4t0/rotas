@@ -96,7 +96,7 @@ class Shift_BreaksController extends Controller
     {
         if(Module::hasAccess("Shift_Breaks", "view")) {
             
-            $shift_break = $this->api->get('api/shift_breaks/' . $id);
+            $shift_break = Shift_Break::findOrFail($id);
             if(isset($shift_break->id)) {
                 $module = Module::get('Shift_Breaks');
                 $module->row = $shift_break;

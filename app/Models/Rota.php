@@ -29,4 +29,20 @@ class Rota extends Model
         ];
     
     protected $dates = ['deleted_at'];
+
+    /**
+     * Get the shop that owns the rota.
+     */
+    public function shop()
+    {
+        return $this->belongsTo('App\Models\Shop');
+    }
+
+    /**
+     * Get the shifts for the rota.
+     */
+    public function shifts()
+    {
+        return $this->hasMany('App\Models\Shift');
+    }
 }
