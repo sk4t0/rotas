@@ -22,7 +22,7 @@ Visit the Home and click on login to register your superadmin.
 Test
 ------------
 
-To test if the class work just run phpunit:
+To test if the class works just run phpunit:
 
     ./vendor/bin/phpunit
 
