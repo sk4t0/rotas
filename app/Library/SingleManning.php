@@ -129,7 +129,7 @@ class SingleManning
         $shiftBreaks = $shift->shift_breaks()->get();
 
         foreach ($shiftBreaks as $break){
-            $breakArray = $this->minutesArray($break->start_time, $break->end_time);
+            $breakArray = $this->minutesArray(Carbon::parse($break->start_time)->toDateTimeString(), Carbon::parse($break->end_time)->toDateTimeString());
             $shiftArray = array_diff($shiftArray, $breakArray);
         }
 

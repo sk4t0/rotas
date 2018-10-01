@@ -1,18 +1,6 @@
 <?php
 
-if (!defined('RDS_HOSTNAME') && (env('APP_ENV') == 'ive-testing' || env('APP_ENV') == 'ive-production')) {
-    define('RDS_HOSTNAME', $_SERVER['RDS_HOSTNAME']);
-    define('RDS_USERNAME', $_SERVER['RDS_USERNAME']);
-    define('RDS_PASSWORD', $_SERVER['RDS_PASSWORD']);
-    define('RDS_DB_NAME', $_SERVER['RDS_DB_NAME']);
-} else {
 
-    define('RDS_HOSTNAME', env('DB_HOST'));
-    define('RDS_USERNAME', env('DB_USERNAME'));
-    define('RDS_PASSWORD', env('DB_PASSWORD'));
-    define('RDS_DB_NAME', env('DB_DATABASE'));
-
-}
 
 return [
 
@@ -71,10 +59,10 @@ return [
             'dump_command_path' => '/usr/bin', // only the path, so without 'mysqldump' or 'pg_dump'
             'dump_command_timeout' => 60 * 5, // 5 minute timeout
             'dump_using_single_transaction' => true, // perform dump using a single transaction
-            'host'      => RDS_HOSTNAME,
-            'database'  => RDS_DB_NAME,
-            'username'  => RDS_USERNAME,
-            'password'  => RDS_PASSWORD,
+            'host'      => env('DB_HOST'),
+            'database'  => env('DB_DATABASE'),
+            'username'  => env('DB_USERNAME'),
+            'password'  => env('DB_PASSWORD'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
