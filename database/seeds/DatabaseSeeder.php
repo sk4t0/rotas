@@ -11,6 +11,11 @@ use Dwij\Laraadmin\Models\LAConfigs;
 use App\Role;
 use App\Permission;
 use App\Models\Department;
+use App\Models\Shop;
+use App\Models\Staff;
+use App\Models\Rota;
+use App\Models\Shift;
+use App\Models\Shift_Break;
 
 class DatabaseSeeder extends Seeder
 {
@@ -90,32 +95,184 @@ class DatabaseSeeder extends Seeder
         if (! $role->perms->contains($perm->id)) {
             $role->attachPermission($perm);
         }
-		
-		// Generate LaraAdmin Default Configurations
+
+
+        $shop = Shop::firstOrNew(["name" => "FunHouse"]);
+        if ($shop->id == null) {
+            $shop->save();
+        }
+
+        $staffBlack = Staff::firstOrNew(["first_name" => "Black Widow", 'surname' => "Xman", "shop_id" => $shop->id]);
+        if ($staffBlack->id == null) {
+            $staffBlack->save();
+        }
+
+        $staffThor = Staff::firstOrNew(["first_name" => "Thor", 'surname' => "Xman", "shop_id" => $shop->id]);
+        if ($staffThor->id == null) {
+            $staffThor->save();
+        }
+
+        $staffWolverine = Staff::firstOrNew(["first_name" => "Wolverine", 'surname' => "Xman", "shop_id" => $shop->id]);
+        if ($staffWolverine->id == null) {
+            $staffWolverine->save();
+        }
+
+        $staffGamora = Staff::firstOrNew(["first_name" => "Gamora", 'surname' => "Xman", "shop_id" => $shop->id]);
+        if ($staffGamora->id == null) {
+            $staffGamora->save();
+        }
+
+        $rota = Rota::firstOrNew(["shop_id" => $shop->id, "week_commence_date" => '2018-10-01']);
+        if ($rota->id == null) {
+            $rota->save();
+        }
+
+        $shiftBlackMon = Shift::firstOrNew([
+            "rota_id" => $rota->id,
+            "staff_id" => $staffBlack->id,
+            "start_time" => "2018-10-01 08:00:00",
+            "end_time" => "2018-10-01 18:00:00"
+        ]);
+        if ($shiftBlackMon->id == null) {
+            $shiftBlackMon->save();
+        }
+
+        $shiftBlackTue = Shift::firstOrNew([
+            "rota_id" => $rota->id,
+            "staff_id" => $staffBlack->id,
+            "start_time" => "2018-10-02 08:00:00",
+            "end_time" => "2018-10-02 14:00:00"
+        ]);
+        if ($shiftBlackTue->id == null) {
+            $shiftBlackTue->save();
+        }
+
+        $shiftThorTue = Shift::firstOrNew([
+            "rota_id" => $rota->id,
+            "staff_id" => $staffThor->id,
+            "start_time" => "2018-10-02 14:00:00",
+            "end_time" => "2018-10-02 18:00:00"
+        ]);
+        if ($shiftThorTue->id == null) {
+            $shiftThorTue->save();
+        }
+
+        $shiftWolveWed = Shift::firstOrNew([
+            "rota_id" => $rota->id,
+            "staff_id" => $staffWolverine->id,
+            "start_time" => "2018-10-03 08:00:00",
+            "end_time" => "2018-10-03 13:00:00"
+        ]);
+        if ($shiftWolveWed->id == null) {
+            $shiftWolveWed->save();
+        }
+
+        $shiftGamoraWed = Shift::firstOrNew([
+            "rota_id" => $rota->id,
+            "staff_id" => $staffGamora->id,
+            "start_time" => "2018-10-03 09:00:00",
+            "end_time" => "2018-10-03 18:00:00"
+        ]);
+        if ($shiftGamoraWed->id == null) {
+            $shiftGamoraWed->save();
+        }
+
+        $shiftWolveThur = Shift::firstOrNew([
+            "rota_id" => $rota->id,
+            "staff_id" => $staffWolverine->id,
+            "start_time" => "2018-10-04 08:00:00",
+            "end_time" => "2018-10-04 18:00:00"
+        ]);
+        if ($shiftWolveThur->id == null) {
+            $shiftWolveThur->save();
+        }
+
+        $shiftGamoraThur = Shift::firstOrNew([
+            "rota_id" => $rota->id,
+            "staff_id" => $staffGamora->id,
+            "start_time" => "2018-10-04 08:00:00",
+            "end_time" => "2018-10-04 18:00:00"
+        ]);
+        if ($shiftGamoraThur->id == null) {
+            $shiftGamoraThur->save();
+        }
+
+        $shiftBlackFri = Shift::firstOrNew([
+            "rota_id" => $rota->id,
+            "staff_id" => $staffBlack->id,
+            "start_time" => "2018-10-05 08:00:00",
+            "end_time" => "2018-10-05 13:00:00"
+        ]);
+        if ($shiftBlackFri->id == null) {
+            $shiftBlackFri->save();
+        }
+
+        $shiftThorFri = Shift::firstOrNew([
+            "rota_id" => $rota->id,
+            "staff_id" => $staffThor->id,
+            "start_time" => "2018-10-05 09:00:00",
+            "end_time" => "2018-10-05 16:00:00"
+        ]);
+        if ($shiftThorFri->id == null) {
+            $shiftThorFri->save();
+        }
+
+        $shiftWolveFri = Shift::firstOrNew([
+            "rota_id" => $rota->id,
+            "staff_id" => $staffWolverine->id,
+            "start_time" => "2018-10-05 15:00:00",
+            "end_time" => "2018-10-05 18:00:00"
+        ]);
+        if ($shiftWolveFri->id == null) {
+            $shiftWolveFri->save();
+        }
+
+
+
+        $shiftBreakWolveThur = Shift_Break::firstOrNew([
+            "shift_id" => $shiftWolveThur->id,
+            "start_time" => "2018-10-04 12:00:00",
+            "end_time" => "2018-10-04 13:00:00"
+        ]);
+        if ($shiftBreakWolveThur->id == null) {
+            $shiftBreakWolveThur->save();
+        }
+
+        $shiftBreakGamoraThur = Shift_Break::firstOrNew([
+            "shift_id" => $shiftGamoraThur->id,
+            "start_time" => "2018-10-04 13:00:00",
+            "end_time" => "2018-10-04 14:00:00"
+        ]);
+        if ($shiftBreakGamoraThur->id == null) {
+            $shiftBreakGamoraThur->save();
+        }
+
+
+        // Generate LaraAdmin Default Configurations
 		
 		$laconfig = LAConfigs::firstOrNew(["key" => "sitename"]);
-		$laconfig->value = "IVE 1.0";
+		$laconfig->value = "SW 1.0";
 		if ($laconfig->id == null) {
             $laconfig->save();
         }
 
 		$laconfig = LAConfigs::firstOrNew(["key" => "sitename_part1"]);
-		$laconfig->value = "IVE";
+		$laconfig->value = "SW";
         if ($laconfig->id == null) {
             $laconfig->save();
         }
 		$laconfig = LAConfigs::firstOrNew(["key" => "sitename_part2"]);
-		$laconfig->value = "Intra vel Extra 1.0";
+		$laconfig->value = "ShopWorks 1.0";
         if ($laconfig->id == null) {
             $laconfig->save();
         }
 		$laconfig = LAConfigs::firstOrNew(["key" => "sitename_short"]);
-		$laconfig->value = "IVE";
+		$laconfig->value = "SW";
         if ($laconfig->id == null) {
             $laconfig->save();
         }
 		$laconfig = LAConfigs::firstOrNew(["key" => "site_description"]);
-		$laconfig->value = "IVE (Intra Vel Extra) is a software to help management for travel agencies";
+		$laconfig->value = "SW (Shopworks) is a software to help staff management";
         if ($laconfig->id == null) {
             $laconfig->save();
         }
